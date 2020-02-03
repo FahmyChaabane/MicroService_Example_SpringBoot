@@ -1,8 +1,17 @@
 package com.chaabane.project.bourseService;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-
+@RepositoryRestResource
 public interface SocieteRepository extends JpaRepository<Societe, Long> {
+
+    //http://localhost:9090/societes/search/societeParMC?x=%25A
+    @Query("select s from Societe s where s.nomSociete like :x")
+    public Page<Societe> societeParMC(@Param("x") String mc, Pageable pageable);
 
 }
