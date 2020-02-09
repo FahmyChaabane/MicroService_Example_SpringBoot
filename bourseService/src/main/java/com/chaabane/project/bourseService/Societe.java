@@ -39,4 +39,12 @@ public class Societe {
     public void setNomSociete(String nomSociete) {
         this.nomSociete = nomSociete;
     }
+
+    @Override
+    public String toString() {
+        return "Societe{" +
+                "id=" + id +
+                ", nomSociete='" + nomSociete + '\'' +
+                '}';
+    }
 }

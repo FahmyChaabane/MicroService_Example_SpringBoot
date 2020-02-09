@@ -21,7 +21,7 @@ public class MyRunner implements CommandLineRunner {
     public void run(String... args) throws Exception {
         logger.info("~~~~ We Got Started !");
         Stream.of("A", "B", "C").forEach(s -> societeRepository.save(new Societe(s)));
-        societeRepository.findAll().forEach(s -> System.out.println(s));
+        societeRepository.findAll().forEach(s -> System.out.println(s.toString()));
 
     }
 
